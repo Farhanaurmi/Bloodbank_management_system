@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, 'bloodbank/home.html')
 
+
 def signupuser(request):
     if request.method=='GET':
         return render(request, 'bloodbank/signupuser.html',{'form':UserCreationForm})
@@ -23,6 +24,7 @@ def signupuser(request):
                 return render(request, 'bloodbank/signupuser.html', {'form':UserCreationForm,'error':'username has been already taken'})
         else:
             return render(request, 'bloodbank/signupuser.html', {'form':UserCreationForm,'error':'password did not match'})
+
 
 def loginuser(request):
     if request.method == 'GET':
@@ -40,3 +42,4 @@ def logoutuser(request):
     if request.method == 'POST':
         logout(request)
         return redirect('home')
+
