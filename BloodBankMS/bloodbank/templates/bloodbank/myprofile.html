@@ -2,7 +2,7 @@
 {% block content %}
 {% for i in form %}
 <h2>Donor profile (personal)</h2>
-<a href="{% url 'editprofile' i.id %}"><h3>{{ i.name }}-{{ i.blood_group }}</h3></a>
+<a href="{% url 'dedit' i.id %}"><h3>{{ i.name }}-{{ i.blood_group }}</h3></a>
 
 {% endfor %}
 {% endblock %}

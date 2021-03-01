@@ -29,5 +29,7 @@ urlpatterns = [
     path('donordetails/<int:donor_id>/', views.donordetails, name='donordetails'),
     path('post/', include('bbpost.urls')),
     path('donorreg/', views.donorreg, name='donorreg'),
+    path('profile/', views.mdprofile, name='mdprofile'),
+    path('edit/<int:d_pk>', views.dedit, name='dedit'),
     
 ]

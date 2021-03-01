@@ -71,4 +71,19 @@ def donorreg(request):
             return render(request, 'bloodbank/donorreg.html', {'form':BloodForm(), 'error':'Error! Try again!'})
 
 
+def mdprofile(request):
+    form = BloodClass.objects.filter(user= request.user)
+    return render(request,'bloodbank/myprofile.html', {'form':form})
 
+def dedit(request, d_pk):
+    obj = get_object_or_404(BloodClass, pk=d_pk,user=request.user)
+    if request.method=='GET':
+        dform=BloodForm(instance=obj)
+        return render(request,'bloodbank/edit.html',{'dform':dform,'obj':obj})
+    else:
+        try:
+            dform = BloodForm(request.POST,instance=obj)
+            dform.save()
+            return redirect('mdprofile')
+        except ValueError:
+            return render(request,'bloodbank/edit.html',{'dform':dform,'obj':obj,'error':'Error! Try again'} )
