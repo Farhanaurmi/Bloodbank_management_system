@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import BloodClass2
 
-# Register your models here.
+admin.site.register(BloodClass2)

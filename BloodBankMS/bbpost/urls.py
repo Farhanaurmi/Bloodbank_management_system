@@ -17,7 +17,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-
     path('', views.bbpost_home, name='bbpost_home'),
-    #path('', views.p_details, name='p_details'),
+    path('cpost', views.cpost, name='cpost'),
 ]
