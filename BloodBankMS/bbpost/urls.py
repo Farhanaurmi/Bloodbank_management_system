@@ -20,4 +20,8 @@ urlpatterns = [
     path('', views.bbpost_home, name='bbpost_home'),
     path('cpost', views.cpost, name='cpost'),
     path('dpost/<int:d_id>/', views.dpost, name='dpost'),
+    path('mypostd/<int:m_id>/', views.mypostd, name='mypostd'),
+    path('mypost/', views.mypost, name='mypost'),
+    path('mypostd/<int:m_id>/delete', views.mypostdelete, name='mypostdelete'),
+
 ]
