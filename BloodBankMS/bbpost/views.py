@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import BloodClass2
 from .forms import BloodForm2
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 # Create your views here.
 
 @login_required
@@ -28,3 +29,21 @@ def cpost(request):
 def dpost(request,d_id):
     dd2 = get_object_or_404(BloodClass2, pk=d_id)
     return render(request,'bbpost/dpost.html', {'dd':dd2})
+
+
+def mypostd(request,m_id):
+    dd2 = get_object_or_404(BloodClass2, pk=m_id, user=request.user)
+    return render(request,'bbpost/mypostd.html', {'dd':dd2})
+
+
+def mypost(request):
+    form = BloodClass2.objects.filter(user=request.user, dtime__isnull=True)
+    return render(request, 'bbpost/mypost.html', {'form':form})
+
+def mypostdelete(request,m_id):
+    dd2 = get_object_or_404(BloodClass2, pk=m_id, user=request.user)
+    if request.method == 'POST':
+        dd2.dtime = timezone.now()
+        dd2.delete()
+        return redirect('mypost')
+

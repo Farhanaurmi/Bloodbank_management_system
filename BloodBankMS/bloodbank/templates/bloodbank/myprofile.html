@@ -2,11 +2,8 @@
 {% block content %}
 {% for i in form %}
 <h2>Donor profile (personal)</h2>
-<<<<<<< Updated upstream
+
 <a href="{% url 'dedit' i.id %}"><h3>{{ i.name }}-{{ i.blood_group }}</h3></a>
-=======
-<a href="{% url 'editprofile' i.id %}"><h3>{{ i.name }}-{{ i.blood_group }}</h3></a>
->>>>>>> Stashed changes
 
 {% endfor %}
 {% endblock %}
