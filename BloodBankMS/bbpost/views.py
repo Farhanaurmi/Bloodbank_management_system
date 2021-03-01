@@ -25,21 +25,22 @@ def cpost(request):
         except ValueError:
             return render(request, 'bbpost/cpost.html', {'form':BloodForm2(), 'error':'Error! Try again!'})
 
-
+@login_required
 def dpost(request,d_id):
     dd2 = get_object_or_404(BloodClass2, pk=d_id)
     return render(request,'bbpost/dpost.html', {'dd':dd2})
 
-
+@login_required
 def mypostd(request,m_id):
     dd2 = get_object_or_404(BloodClass2, pk=m_id, user=request.user)
     return render(request,'bbpost/mypostd.html', {'dd':dd2})
 
-
+@login_required
 def mypost(request):
     form = BloodClass2.objects.filter(user=request.user, dtime__isnull=True)
     return render(request, 'bbpost/mypost.html', {'form':form})
-
+    
+@login_required
 def mypostdelete(request,m_id):
     dd2 = get_object_or_404(BloodClass2, pk=m_id, user=request.user)
     if request.method == 'POST':

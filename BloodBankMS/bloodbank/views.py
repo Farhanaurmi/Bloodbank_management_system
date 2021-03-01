@@ -70,11 +70,12 @@ def donorreg(request):
         except ValueError:
             return render(request, 'bloodbank/donorreg.html', {'form':BloodForm(), 'error':'Error! Try again!'})
 
-
+@login_required
 def mdprofile(request):
     form = BloodClass.objects.filter(user= request.user)
     return render(request,'bloodbank/myprofile.html', {'form':form})
 
+@login_required
 def dedit(request, d_pk):
     obj = get_object_or_404(BloodClass, pk=d_pk,user=request.user)
     if request.method=='GET':
@@ -87,3 +88,5 @@ def dedit(request, d_pk):
             return redirect('mdprofile')
         except ValueError:
             return render(request,'bloodbank/edit.html',{'dform':dform,'obj':obj,'error':'Error! Try again'} )
+
+
