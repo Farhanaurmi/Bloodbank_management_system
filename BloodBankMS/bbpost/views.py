@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import BloodClass2
 from .forms import BloodForm2
 from django.contrib.auth.decorators import login_required
@@ -13,7 +13,7 @@ def bbpost_home(request):
 @login_required
 def cpost(request):
     if request.method == 'GET':
-        return render(request, 'bbpost/rpost.html', {'form':BloodForm2()})
+        return render(request, 'bbpost/cpost.html', {'form':BloodForm2()})
     else:
         try:
             dr = BloodForm2(request.POST)
@@ -22,4 +22,9 @@ def cpost(request):
             new_dr.save()
             return redirect('bbpost_home')
         except ValueError:
-            return render(request, 'bbpost/rpost.html', {'form':BloodForm2(), 'error':'Error! Try again!'})
+            return render(request, 'bbpost/cpost.html', {'form':BloodForm2(), 'error':'Error! Try again!'})
+
+
+def dpost(request,d_id):
+    dd2 = get_object_or_404(BloodClass2, pk=d_id)
+    return render(request,'bbpost/dpost.html', {'dd':dd2})

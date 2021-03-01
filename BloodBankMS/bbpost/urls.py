@@ -19,4 +19,5 @@ from . import views
 urlpatterns = [
     path('', views.bbpost_home, name='bbpost_home'),
     path('cpost', views.cpost, name='cpost'),
+    path('dpost/<int:d_id>/', views.dpost, name='dpost'),
 ]
