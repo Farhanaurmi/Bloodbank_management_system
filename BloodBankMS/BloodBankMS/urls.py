@@ -23,6 +23,8 @@ urlpatterns = [
     path('signup/', views.signupuser, name='signupuser'),
     path('login/', views.loginuser, name='loginuser'),
     path('logout/', views.logoutuser, name='logoutuser'),
+    path('donor/', views.donoruser, name='donoruser'),
+    path('donordetails/<int:donor_id>/', views.donordetails, name='donordetails'),
     path('post/', include('bbpost.urls')),
     
 ]

@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 class BloodClass(models.Model):
     name = models.CharField(max_length=100)
     blood_group = models.CharField(max_length=3)
-    age = models.IntegerField(max_length=3)
+    age = models.IntegerField()
     address = models.CharField(max_length=250)
-    phone_number = models.IntegerField(max_length=11)
+    phone_number = models.CharField(max_length=14)
 
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 

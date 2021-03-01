@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from .models import BloodClass
 
 
 def home(request):
@@ -42,4 +43,14 @@ def logoutuser(request):
     if request.method == 'POST':
         logout(request)
         return redirect('home')
+
+@login_required
+def donoruser(request):
+    form = BloodClass.objects.all()
+    return render(request,'bloodbank/donor.html', {'form':form})
+
+@login_required
+def donordetails(request,donor_id):
+    dd = get_object_or_404(BloodClass, pk=donor_id)
+    return render(request,'bloodbank/donordetails.html', {'dd':dd})
 
