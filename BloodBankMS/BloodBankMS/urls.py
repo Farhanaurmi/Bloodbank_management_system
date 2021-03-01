@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from bloodbank import views
 
+#app_name = 'bloodbank'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
@@ -26,5 +28,6 @@ urlpatterns = [
     path('donor/', views.donoruser, name='donoruser'),
     path('donordetails/<int:donor_id>/', views.donordetails, name='donordetails'),
     path('post/', include('bbpost.urls')),
+    path('donorreg/', views.donorreg, name='donorreg'),
     
 ]

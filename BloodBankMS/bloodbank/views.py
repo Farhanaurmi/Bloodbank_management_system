@@ -5,6 +5,7 @@ from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from .models import BloodClass
+from .forms import BloodForm
 
 
 def home(request):
@@ -53,4 +54,21 @@ def donoruser(request):
 def donordetails(request,donor_id):
     dd = get_object_or_404(BloodClass, pk=donor_id)
     return render(request,'bloodbank/donordetails.html', {'dd':dd})
+
+@login_required
+def donorreg(request):
+    if request.method == 'GET':
+        return render(request, 'bloodbank/donorreg.html', {'form':BloodForm()})
+    else:
+        try:
+            dr = BloodForm(request.POST)
+            new_dr = dr.save(commit=False)
+            new_dr.user = request.user
+            new_dr.save()
+            return redirect('donoruser')
+
+        except ValueError:
+            return render(request, 'bloodbank/donorreg.html', {'form':BloodForm(), 'error':'Error! Try again!'})
+
+
 
