@@ -1,0 +1,14 @@
+{% extends 'bloodbank/base.html' %}
+{% block content %}
+<h1> Edit Donor Profile </h1>
+
+<h2>{{ error }}</h2>
+{{ obj.name }}
+<form method="POST" >
+    {% csrf_token %}
+{{ dform.as_p }}
+
+<button type="submit">Save</button>
+</form>
+
+{% endblock %}
