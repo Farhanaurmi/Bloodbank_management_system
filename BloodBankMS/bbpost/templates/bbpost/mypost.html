@@ -2,7 +2,7 @@
 {% block content %}
 {% for i in form %}
 <div class="jumbotron">
-<a href="{% url 'mypostd' i.id %}">{{ i.user }}-{{ i.blood_group }}</a> <br>
+<a href="{% url 'mypostd' i.id %}">@{{ i.user }}<br>({{ i.blood_group }})</a> <br>
 </div>
 {% endfor %}
 {% endblock %}

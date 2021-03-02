@@ -4,13 +4,22 @@
 <br>
 <br>
 
-<h2>{{ error }}</h2>
+{% load static %}
+<link rel="stylesheet" href="{% static 'bloodbank/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'bloodbank/testcss.css' %}">
 
-{{ obj.name }}
-<form method="POST" >
-    {% csrf_token %}
-{{ dform.as_p }}
+<dir class="jumbotron text-center">
+    <h2>{{ error }}</h2>
 
-<button type="submit" >Save</button>
-</form>
+    {{ obj.name }}
+    <form method="POST" >
+        {% csrf_token %}
+    {{ dform.as_p }}
+    
+    <button type="submit" class="btn btn-secondary">Save</button>&nbsp; &nbsp;
+    <a href="{% url 'mdprofile' %}" class="btn btn-secondary">Back</a>
+
+    </form>
+
+</dir>
 
