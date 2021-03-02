@@ -1,0 +1,22 @@
+{% extends 'bloodbank/base.html' %}
+{% block content %}
+
+
+{% for i in form %}
+<div class="jumbotron text-center">
+<a href="{% url 'dpost' i.id %}">@{{ i.user }}<br>{{ i.blood_group }}</a>
+</div>
+{% endfor %}
+
+
+<div class="jumbotron text-center">
+    <div class="btn-group btn-group-lg ">
+    <a href="{% url 'cpost' %}" class="btn btn-dark"> Create Post</a>
+    <br>
+    <br>
+    <a href="{% url 'mypost' %}" class="btn btn-dark" > My Post</a>
+<br>
+<br>
+</div>
+
+{% endblock %}

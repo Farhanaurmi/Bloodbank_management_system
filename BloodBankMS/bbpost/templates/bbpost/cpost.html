@@ -1,0 +1,14 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'bloodbank/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'bloodbank/testcss.css' %}">
+
+<dir class="jumbotron">
+    <h3 class="btn btn-secondary">{{ error }}</h3>
+    <form method="POST" >
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit" class="btn btn-secondary">Create</button>
+    <a href="{% url 'bbpost_home' %}" class="btn btn-secondary">Back</a>
+    </form>
+</dir>

@@ -1,0 +1,13 @@
+{% extends 'bloodbank/base.html' %}
+{% block content %}
+<br><br><br><br>
+{% for i in bbform %}
+<div class="jumbotron">
+<h3>{{ i.name }}</h3>
+<h3>{{ i.phone_number }}</h3>
+<h3>{{ i.address }}</h3>
+</div>
+{% endfor %}
+
+
+{% endblock %}

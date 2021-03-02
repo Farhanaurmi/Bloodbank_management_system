@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'bloodbank/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bloodbank/testcss.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png"  href="{% static 'bloodbank/LogoMakr-1AIuCn.png' %}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+      function count(){
+        document.querySelector('.var2').innerHTML="Thank you";
+        document.querySelector('.var1').innerHTML="for your response. There will be more feature soon.";
+      }
+      function count1(){
+        document.querySelector('.var10').innerHTML="About Us";
+        document.querySelector('.var11').innerHTML="<br>Name - FARHANA ISLAM URMI <br>Github - Github.com/Farhanaurmi<br><br>Name - MAHADI HASAN TANMOY <br>Github - Github.com/mhtanmoy<br><br>";
+      }
+      function count2(){
+        document.querySelector('.var10').innerHTML="Contact";
+        document.querySelector('.var11').innerHTML="<br>E-mail: farhanaurmi760@gmail.com<br>E-mail: Mahadi.std@gmail.com<br><br>";
+      }
+    </script>
+    <title>Blood-Bank</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
+        <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="{% url 'home' %}" class="navbar-brand btn btn-dark">
+            <img src="{% static 'bloodbank/LogoMakr-1AIuCn.png' %}" width="30" height="30" class="d-inline-block align-top">
+            <span>Blood Bank</span>
+            </a>
+        </div>
+        {% if user.is_authenticated %}
+        <ul class="navbar-nav">
+            <li class="nav-item"><button type="button"  class="btn btn-dark">|| Logged In as {{ user.username }} ||</button></li>
+            <li class="nav-item">
+                <form method="POST" action="{% url 'logoutuser' %}">
+                    {% csrf_token %}
+                <button type="submit"  class="btn btn-dark">Log-Out</button>
+            </li>
+        </ul>
+        {% else %}
+        <ul class="navbar-nav">
+            <li class="nav-item"> 
+                <a class="btn btn-dark" href="{% url 'signupuser' %}">Sign Up </a> 
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-dark" href="{% url 'loginuser' %}">Login</a>
+            </li>
+        </ul>
+        {% endif %}
+    </div>
+    </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+    {% block content %}{% endblock %}
+
+</body>
+</html>

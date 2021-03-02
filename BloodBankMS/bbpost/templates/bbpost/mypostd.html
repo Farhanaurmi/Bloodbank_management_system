@@ -1,0 +1,27 @@
+{% extends 'bloodbank/base.html' %}
+{% block content %}
+<div class="jumbotron">
+<div>
+<h3>@{{ dd.user }}</h3><span>
+{{ dd.ctime|date:'M j Y H:i' }}
+</span>
+</div><br><br>
+<h5>Age &nbsp;&nbsp;: {{ dd.age }}</h5>
+<h5>Blood group : {{ dd.blood_group }}</h5>
+<h5>Phone number: {{ dd.phone_number }}</h5>
+<h5>Address &nbsp;: {{ dd.address }}</h5><br>
+<h5>{{ dd.comment }}</h5>
+</div>
+<form method="POST" action="{% url 'mypostdelete' dd.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-dark">Complete</button>
+</form><br><br>
+<form method="POST" action="{% url 'mypostdelete' dd.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-dark">Delete</button>
+</form>
+
+{% endblock %}
+
+
+

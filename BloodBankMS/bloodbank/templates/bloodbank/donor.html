@@ -1,0 +1,11 @@
+{% extends 'bloodbank/base.html' %}
+{% block content %}
+<br><br><br><br>
+{% for i in form %}
+
+<div class="jumbotron">
+<a href="{% url 'donordetails' i.id %}"><h3>{{ i.name }}-{{ i.blood_group }}</h3></a>
+</div>
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,10 @@
+
+<h1>{{ dd.user }}</h1>
+<h1>Comment Form</h1>
+<h2>{{ error }}</h2>
+
+<form method="POST" >
+    {% csrf_token %}
+    {{ new_dr.as_p }}
+<button type="submit">Create</button>
+</form>
