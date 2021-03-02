@@ -1,6 +1,7 @@
 {% extends 'bloodbank/base.html' %}
 {% block content %}
-
+{% load static %}
+<img src="{% static 'bloodbank/Screenshot (399).png' %}" width="500"><br>
 <h1>||BLOOD-BANK||</h1>
 <h2><a href="{% url 'bank:bloodbank' %}">Bloodbank</a></h2>
 <h2><a href="{% url 'donoruser' %}">Donor List</a></h2>

@@ -1,5 +1,5 @@
-
-
+{% extends 'bloodbank/base.html' %}
+{% block content %}
 <h1>Donor Register Form</h1>
 <h2>{{ error }}</h2>
 
@@ -8,3 +8,6 @@
     {{ form.as_p }}
 <button type="submit">Create</button>
 </form>
+
+{% endblock %}
+

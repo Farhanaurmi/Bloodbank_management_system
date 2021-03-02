@@ -1,4 +1,5 @@
-
+{% extends 'bloodbank/base.html' %}
+{% block content %}
 <h3>{{ dd.ctime }}</h3>
 <h3>{{ dd.age }}</h3>
 <h3>{{ dd.blood_group }}</h3>
@@ -13,5 +14,8 @@
     {% csrf_token %}
     <button type="submit">Delete</button>
 </form>
+
+{% endblock %}
+
 
 

@@ -1,3 +1,5 @@
+{% extends 'bloodbank/base.html' %}
+{% block content %}
 <h1>{{ dd.user }}</h1>
 <h3>{{ dd.ctime }}</h3>
 <h3>{{ dd.age }}</h3>
@@ -5,6 +7,9 @@
 <h3>{{ dd.phone_number }}</h3>
 <h3>{{ dd.address }}</h3>
 <h3>{{ dd.comment }}</h3>
+
+{% endblock %}
+
 
 
 
