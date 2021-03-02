@@ -1,18 +1,20 @@
 {% extends 'bloodbank/base.html' %}
 {% block content %}
+<div class="jumbotron">
 <h3>{{ dd.ctime }}</h3>
 <h3>{{ dd.age }}</h3>
 <h3>{{ dd.blood_group }}</h3>
 <h3>{{ dd.phone_number }}</h3>
 <h3>{{ dd.address }}</h3>
 <h3>{{ dd.comment }}</h3>
+</div>
 <form method="POST" action="{% url 'mypostdelete' dd.id %}">
     {% csrf_token %}
-    <button type="submit">Complete</button>
+    <button type="submit" class="btn btn-dark">Complete</button>
 </form>
 <form method="POST" action="{% url 'mypostdelete' dd.id %}">
     {% csrf_token %}
-    <button type="submit">Delete</button>
+    <button type="submit" class="btn btn-dark">Delete</button>
 </form>
 
 {% endblock %}

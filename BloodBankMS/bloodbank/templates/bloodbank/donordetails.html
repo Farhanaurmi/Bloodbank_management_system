@@ -1,11 +1,12 @@
 {% extends 'bloodbank/base.html' %}
 {% block content %}
-
-<h3>{{ dd.name }}</h3>
-<h3>{{ dd.age }}</h3>
-<h3>{{ dd.blood_group }}</h3>
-<h3>{{ dd.phone_number }}</h3>
-<h3>{{ dd.address }}</h3>
-
+<br><br><br><br>
+<div class="jumbotron">
+<h3>|Name| {{ dd.name }}</h3>
+<h3>|Age | {{ dd.age }}</h3>
+<h3>|Blood Group| {{ dd.blood_group }}</h3>
+<h3>|Phone| {{ dd.phone_number }}</h3>
+<h3>|Address| {{ dd.address }}</h3>
+</div>
 
 {% endblock %}

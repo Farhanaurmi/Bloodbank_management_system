@@ -1,9 +1,22 @@
 {% extends 'bloodbank/base.html' %}
 {% block content %}
-{% for i in form %}
-<a href="{% url 'dpost' i.id %}"><h3>{{ i.blood_group }}</h3></a>
 
+
+{% for i in form %}
+<div class="jumbotron text-center">
+<a href="{% url 'dpost' i.id %}">{{ i.blood_group }}</a>
+</div>
 {% endfor %}
-<a href="{% url 'cpost' %}">Create Post</a>
-<a href="{% url 'mypost' %}">My Post</a>
+
+
+<div class="jumbotron text-center">
+    <div class="btn-group btn-group-lg ">
+    <a href="{% url 'cpost' %}" class="btn btn-dark"> Create Post</a>
+    <br>
+    <br>
+    <a href="{% url 'mypost' %}" class="btn btn-dark" > My Post</a>
+<br>
+<br>
+</div>
+
 {% endblock %}

@@ -1,14 +1,19 @@
 {% extends 'bloodbank/base.html' %}
 {% block content %}
-<h1> Edit Donor Profile </h1>
-
+<br>
+<br>
+<br>
+<br>
+<div class="jumbotron">
 <h2>{{ error }}</h2>
+</div>
+<div class="jumbotron">
 {{ obj.name }}
 <form method="POST" >
     {% csrf_token %}
 {{ dform.as_p }}
 
-<button type="submit">Save</button>
+<button type="submit" class="btn btn-dark">Save</button>
 </form>
-
+</div>
 {% endblock %}
