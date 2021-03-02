@@ -1,12 +1,24 @@
 {% extends 'bloodbank/base.html' %}
 {% block content %}
-{% load static %}
-<img src="{% static 'bloodbank/Screenshot (399).png' %}" width="500"><br>
-<h1>||BLOOD-BANK||</h1>
-<h2><a href="{% url 'bank:bloodbank' %}">Bloodbank</a></h2>
-<h2><a href="{% url 'donoruser' %}">Donor List</a></h2>
-<h2><a href="{% url 'bbpost_home' %}">All Post</a></h2>
-<h2><a href="{% url 'donorreg' %}">Donor Register</a></h2>
-<h2><a href="{% url 'mdprofile' %}">Donor profile</a></h2>
+<br><br><br><br>
+
+
+    <a href="{% url 'bank:bloodbank' %}" class="btn btn-primary"> Bloodbank</a>
+    <br>
+    <br>
+    <a href="{% url 'donoruser' %}" class="btn btn-primary" >Donor List</a>
+    <br>
+    <br>
+    <a href="{% url 'bbpost_home' %}" class="btn btn-primary" >All Post</a>
+    <br>
+    <br>
+    <a href="{% url 'donorreg' %}" class="btn btn-primary">Donor Register</a>
+    <br>
+    <br>
+    <a href="{% url 'mdprofile' %}" class="btn btn-primary">Donor profile</a>
+<br>
+<br>
+
+
 {% endblock %}
 
