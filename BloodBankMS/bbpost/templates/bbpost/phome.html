@@ -4,7 +4,7 @@
 
 {% for i in form %}
 <div class="jumbotron text-center">
-<a href="{% url 'dpost' i.id %}">{{ i.blood_group }}</a>
+<a href="{% url 'dpost' i.id %}">@{{ i.user }}<br>{{ i.blood_group }}</a>
 </div>
 {% endfor %}
 

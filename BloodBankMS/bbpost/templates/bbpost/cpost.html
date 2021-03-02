@@ -1,12 +1,8 @@
-{% extends 'bloodbank/base.html' %}
-{% block content %}
+<a href="{% url 'home' %}">Home</a>
 <h3 class="btn btn-secondary">{{ error }}</h3>
-<div class="jumbotron">
 <form method="POST" >
     {% csrf_token %}
     {{ form.as_p }}
 <button type="submit">Create</button>
 </form>
-</div>
-{% endblock %}
 
